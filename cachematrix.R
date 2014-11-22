@@ -1,5 +1,6 @@
-## Put comments here that give an overall description of what your
-## functions do
+## These functions allow the creation of a matrix-like object (defined to be
+## invertible) where the object will store (cache) the last generated inverse
+## and a inverse computing function which will retrieve the stored result
 
 ## Write a short comment describing this function
 
