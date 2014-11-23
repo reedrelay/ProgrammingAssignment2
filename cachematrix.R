@@ -9,13 +9,16 @@
 
 makeCacheMatrix <- function(x = matrix()) {
     minv <- NULL
+    
     set <- function(m) {
         x <<- m
         minv <<- NULL
     }
     get <- function() x 
-    getinv <- function() minv 
+    
     setinv <- function(i) {minv <<- i}
+    getinv <- function() minv
+    
     list(set =set, get = get, setinv = setinv, getinv = getinv)
 }
 
@@ -31,8 +34,8 @@ cacheSolve <- function(x, ...) {
             print("Returning cached value.")
             return(xinv)
         }
-        mtrx <- x$get()
-        xinv <- solve(mtrx,...)
+        core_matrix <- x$get()
+        xinv <- solve(core_matrix,...)
         x$setinv(xinv)
         xinv
 }
